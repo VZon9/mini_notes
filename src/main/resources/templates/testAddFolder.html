@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<form th:action="@{/test/addFolder}" th:object="${folder}" method="post">
+  <label for="name">User Name</label>
+  <input type="text"  id="name" name="userName">
+  <br>
+  <label for="title">Title</label>
+  <input type="text" th:field="*{title}" id="title">
+  <br>
+  <button type="submit">Add folder</button>
+</form>
+
+
+</body>
+</html>

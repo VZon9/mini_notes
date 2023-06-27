@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<form th:action="@{/test/addNote}" th:object="${note}" method="post">
+  <label for="name">Folder Title</label>
+  <input type="text"  id="name" name="folderTitle">
+  <br>
+  <label for="title">Title</label>
+  <input type="text" th:field="*{title}" id="title">
+  <br>
+  <label for="text">Text</label>
+  <input type="text" th:field="*{noteText}" id="text">
+  <br>
+  <button type="submit">Add folder</button>
+</form>
+
+
+</body>
+</html>

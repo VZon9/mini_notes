@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>
+    Test
+</h1>
+<hr>
+<ul th:each="user: ${userSet}">
+    <li>
+        <span th:text="${user.userName}"></span>
+        <ul th:each="folder: ${user.userFolders}">
+            <li>
+                <span th:text="${folder.title}"></span>
+                <ul th:each="note: ${folder.folderNotes}">
+                    <li>
+                        <span th:text="${note.title}"></span>
+                        <br>
+                        <span th:text="${note.noteText}"></span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<br>
+<br>
+<form action="/test/addUser" method="get">
+    <button type="submit">Add user</button>
+</form>
+<br>
+<br>
+<form action="/test/addFolder" method="get">
+    <button type="submit">Add folder</button>
+</form>
+<br>
+<br>
+<form action="/test/addNote" method="get">
+    <button type="submit">Add note</button>
+</form>
+</body>
+</html>
