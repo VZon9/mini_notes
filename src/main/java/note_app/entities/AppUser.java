@@ -1,4 +1,4 @@
-package notes_app.entities;
+package note_app.entities;
 
 import jakarta.persistence.*;
 

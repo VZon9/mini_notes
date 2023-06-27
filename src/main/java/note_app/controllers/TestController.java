@@ -1,11 +1,11 @@
-package notes_app.controllers;
+package note_app.controllers;
 
-import notes_app.entities.AppUser;
-import notes_app.entities.Folder;
-import notes_app.entities.Note;
-import notes_app.repositorys.FolderRepository;
-import notes_app.repositorys.NoteRepository;
-import notes_app.repositorys.UserRepository;
+import note_app.entities.AppUser;
+import note_app.entities.Folder;
+import note_app.entities.Note;
+import note_app.repositorys.FolderRepository;
+import note_app.repositorys.NoteRepository;
+import note_app.repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

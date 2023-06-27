@@ -1,4 +1,4 @@
-package notes_app.config;
+package note_app.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,6 @@
-package notes_app.repositorys;
+package note_app.repositorys;
 
-import notes_app.entities.Folder;
+import note_app.entities.Folder;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FolderRepository extends JpaRepository<Folder, Long> {
