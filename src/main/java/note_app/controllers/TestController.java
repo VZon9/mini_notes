@@ -50,7 +50,7 @@ public class TestController {
 
     @PostMapping("/test/addFolder")
     public String addFolder(@ModelAttribute Folder folder, @RequestParam(name = "userName") String userName){
-        users.findByUserName(userName).addFolder(folder);
+        users.findByName(userName).addFolder(folder);
         folders.save(folder);
         return "redirect:/test/home";
     }

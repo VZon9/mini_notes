@@ -7,7 +7,7 @@
 <hr>
 <ul th:each="user: ${userSet}">
     <li>
-        <span th:text="${user.userName}"></span>
+        <span th:text="${user.name}"></span>
         <ul th:each="folder: ${user.userFolders}">
             <li>
                 <span th:text="${folder.title}"></span>
