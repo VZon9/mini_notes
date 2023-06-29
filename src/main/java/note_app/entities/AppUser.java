@@ -9,10 +9,11 @@ import java.util.Set;
  * Class describing the user entity.
  */
 @Entity
+@Table(name = "app_user")
 public class AppUser {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

@@ -18,7 +18,7 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/**")
+                        .requestMatchers( "/**")
                         .permitAll()
                         .anyRequest().authenticated()
                 )
@@ -38,9 +38,9 @@ public class WebSecurityConfiguration {
     public UserDetailsService userDetailsService() {
         UserDetails user =
                 User.withDefaultPasswordEncoder()
-                        .username("admin")
-                        .password("admin")
-                        .roles("ADMIN")
+                        .username("user")
+                        .password("user")
+                        .roles("USER")
                         .build();
 
         return new InMemoryUserDetailsManager(user);
