@@ -1,5 +1,6 @@
 package note_app;
 
+import note_app.entities.UserRole;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

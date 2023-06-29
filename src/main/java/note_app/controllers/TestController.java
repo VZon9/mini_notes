@@ -3,6 +3,7 @@ package note_app.controllers;
 import note_app.entities.AppUser;
 import note_app.entities.Folder;
 import note_app.entities.Note;
+import note_app.entities.UserRole;
 import note_app.repositorys.FolderRepository;
 import note_app.repositorys.NoteRepository;
 import note_app.repositorys.UserRepository;
@@ -38,6 +39,7 @@ public class TestController {
 
     @PostMapping("/test/addUser")
     public String addUser(@ModelAttribute AppUser user){
+        user.setRole(UserRole.REGULAR);
         users.save(user);
         return "redirect:/test/home";
     }

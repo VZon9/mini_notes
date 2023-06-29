@@ -1,1 +1,1 @@
-INSERT INTO app_user (name, login, password) VALUES ('Test', 'user', '0000');
+INSERT INTO app_user (name, login, password, role) VALUES ('Test', 'user', '0000', 1);
