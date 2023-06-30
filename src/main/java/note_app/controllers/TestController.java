@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
+
 @Controller
 public class TestController {
 
@@ -68,6 +70,25 @@ public class TestController {
         folders.findByTitle(folderTitle).addNote(note);
         notes.save(note);
         return "redirect:/test/home";
+    }
+
+    @GetMapping("/test/start")
+    public String getStart(){
+        return "testStart";
+    }
+
+    @GetMapping("/test/login")
+    public String getLogin(){
+        return "testLogin";
+    }
+
+    @GetMapping("/test/welcome")
+    public String getWelcome(Model model, Principal principal){
+        String userName = principal.getName();
+        String role = users.findByName(userName).getRole().name();
+        model.addAttribute("userName", userName);
+        model.addAttribute("role", role);
+        return "testWelcome";
     }
 
 }
