@@ -2,7 +2,8 @@ spring:
   h2:
     console.enabled: true
   datasource:
-    url: jdbc:h2:mem:mydb
+#    url: jdbc:h2:file:~/mydb
+    url: jdbc:h2:mem:/mydb
     username: sa
     password:
     driverClassName: org.h2.Driver
@@ -11,6 +12,3 @@ spring:
     hibernate.ddl-auto: none
     show-sql: true
     defer-datasource-initialization: true
-  sql:
-    init:
-      mode: always

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -21,17 +22,17 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers( "/test/home", "/test/addUser", "/test/addFolder", "/test/addNote", "/test/start", "/test/welcome")
+                        .requestMatchers(  "/main", "/login", "/sing_up", "/css/**")
                         .permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
-                        .loginPage("/test/login")
-                        .defaultSuccessUrl("/test/welcome", true)
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/main")
                         .permitAll()
                 )
                 .logout((logout) -> logout.
-                        logoutSuccessUrl("/home").
+                        logoutSuccessUrl("/main").
                         permitAll());
 
         return http.build();

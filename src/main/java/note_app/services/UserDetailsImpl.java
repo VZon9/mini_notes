@@ -21,7 +21,7 @@ public class UserDetailsImpl implements UserDetails {
 
     private Set<GrantedAuthority> authorities;
 
-    public UserDetailsImpl(Long id, String name, String login, String password, Set<GrantedAuthority> authorities){
+    private UserDetailsImpl(Long id, String name, String login, String password, Set<GrantedAuthority> authorities){
         this.id = id;
         this.name = name;
         this.login = login;
