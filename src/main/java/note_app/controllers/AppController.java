@@ -15,10 +15,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 public class AppController {
@@ -82,6 +84,16 @@ public class AppController {
         }
 
         return "redirect:/login";
+    }
+
+    @GetMapping("{userId}/profile")
+    public String getProfile(@PathVariable Long userId, Model model){
+        Optional<AppUser> userOptional = users.findById(userId);
+        if(userOptional.isPresent()){
+            AppUser user = userOptional.get();
+            model.addAttribute("user", user);
+        }
+        return "profile";
     }
 
 }

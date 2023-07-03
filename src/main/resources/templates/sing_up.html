@@ -6,9 +6,9 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<div style="height: 140px; overflow: hidden;">
+<div style="height: 140px; overflow: hidden; background: #1e1e20;">
 </div>
-<div class="container" style="height: 470px; overflow: hidden; top: 63px; position: relative; width: 546px;">
+<div class="container" style="height: 470px; overflow: hidden; top: 63px; position: relative; width: 546px; background: #1e1e20;">
     <form th:action="@{/sing_up}" method="post">
         <input name="username"type="text" class="form-control" placeholder="Name" style="height: 50px; overflow: hidden; top: 20px; position: relative;">
         <input name="login" type="text" class="form-control" placeholder="Login" style="height: 50px; overflow: hidden; top: 60px; position: relative;">
@@ -16,8 +16,8 @@
         <input name="passwordRep" type="password" class="form-control" placeholder="Repeat password" style="height: 50px; overflow: hidden; top: 140px; position: relative;">
         <button type="submit" class="btn btn-default center-block" style="height: 50px; overflow: hidden; top: 200px; position: relative;">SingUp</button>
     </form>
-    <p th:if="${passErr}"style="top: 80px; height: 45px; overflow: hidden; position: relative; left: 1px; width: 515px;">passwords don't match</p>
-    <p th:if="${loginErr}"style="top: 80px; height: 45px; overflow: hidden; position: relative; left: 1px; width: 515px;">this login is already occupied</p>
+    <p th:if="${passErr}"style="top: 90px; height: 45px; overflow: hidden; position: relative; width: 515px;">passwords don't match</p>
+    <p th:if="${loginErr}"style="top: 90px; height: 45px; overflow: hidden; position: relative; width: 515px;">this login is already occupied</p>
 
 </div>
 </body>
