@@ -19,6 +19,8 @@ public class Note {
     @JsonIgnore
     private Folder folder;
 
+    private boolean isDeleted;
+
     /**
      *
      * @return id of this note
@@ -81,5 +83,21 @@ public class Note {
      */
     public void setFolder(Folder folder) {
         this.folder = folder;
+    }
+
+    /**
+     *
+     * @return boolean isDeleted
+     */
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    /**
+     * Sets boolean is deleted
+     * @param deleted - set boolean value
+     */
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 }

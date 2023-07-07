@@ -15,15 +15,94 @@ p {
     color: rgb(255, 255, 255)
 }
 
-.row > .col-md-3 {
-    padding: 50px 15px 0px 15px;
+.row > .col-md-8 {
+    padding: 15px 15px 0px 15px;
 }
 
-.row > .col-md-3 > .list-group {
+.row > .col-md-8 > .list-group {
     background: #ffffff;
     padding: 0px 0px 20px 15px;
 }
 
-.row > .col-md-3 > .list-group > .list-group-item {
+.row > .col-md-8 > .list-group > .list-group-item {
     font-size: 18px;
+}
+
+.row > .col-md-8 > .img-responsive {
+    margin: 0px 0px 20px 15px;
+}
+
+.my_modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: grid;
+    align-item: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0,5s;
+}
+
+.my_modal_box{
+    position: relative;
+    width: 700px;
+    height: 400px;
+    padding: 45px;
+    margin: 100px 0px;
+    z-index: 1;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 70px 0px rgba(0, 0, 0, 0.2);
+}
+
+.my_modal.open{
+    visibility: visible;
+    opacity: 1;
+}
+
+.my_modal_close_btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.my_modal_del{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: grid;
+    align-item: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0,5s;
+}
+
+.my_modal_box_del{
+    position: relative;
+    width: 350px;
+    height: 200px;
+    padding: 20px;
+    margin: 300px 0px;
+    z-index: 1;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 70px 0px rgba(0, 0, 0, 0.2);
+}
+
+.my_modal_del.open{
+    visibility: visible;
+    opacity: 1;
 }

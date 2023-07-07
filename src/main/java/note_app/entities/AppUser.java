@@ -144,7 +144,7 @@ public class AppUser {
      * @return set of folder of this user
      */
     public Set<Folder> getUserFolders() {
-        return userFolders;
+        return this.userFolders;
     }
 
     /**

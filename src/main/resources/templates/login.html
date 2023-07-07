@@ -7,12 +7,21 @@
 </head>
 <body>
     <div style="height: 140px; overflow: hidden; background: #1e1e20;">
+        <div class="page-header" style="width: 350px; overflow: hidden; top: -20px; height: 100px; position: relative; left: 30px; background: white; border-radius: 20px 20px 20px 20px;">
+            <a th:href="@{/main}" style="text-decoration:none;">
+                <h1 class="center-block" style="width: 300px; overflow: hidden; top: -15px; height: 98px; position: relative; text-align:center;">
+                    MINI NOTES
+                    <br>
+                    <small>best notes service</small>
+                </h1>
+            </a>
+        </div>
     </div>
     <div class="container" style="height: 470px; overflow: hidden; top: 63px; position: relative; width: 546px; background: #1e1e20;">
         <form th:action="@{/login}" method="post">
             <input name="username" type="text" class="form-control" placeholder="Login" style="height: 50px; overflow: hidden; top: 56px; position: relative;">
             <input name="password" type="password" class="form-control" placeholder="Password" style="height: 50px; overflow: hidden; top: 110px; position: relative;">
-            <button type="submit" class="btn btn-default center-block" style="height: 50px; overflow: hidden; top: 218px; position: relative;">Login</button>
+            <button type="submit" class="btn btn-default center-block" style="height: 50px; overflow: hidden; top: 220px; position: relative;">Login</button>
         </form>
         <p style="top: 64px; height: 40px; overflow: hidden; position: relative;">no account? <a href="/sing_up">sing up</a></p>
         <p th:if="${param.error}" style="top: 40px; height: 40px; overflow: hidden; position: relative;">invalid username or password</p>

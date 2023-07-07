@@ -1,19 +1,92 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link id="main-sheet" rel="stylesheet" href="http://app.saul.angry.ventures/themes/yeti/stylesheet.css">
-  <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link id="main-sheet" rel="stylesheet" href="http://app.saul.angry.ventures/themes/yeti/stylesheet.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
+<body style="overflow-x: hidden;">
 <div style="height: 140px; overflow: hidden; background: #1e1e20;">
-    <form th:action="@{/logout}" method="post" class="btn-group pull-right">
-      <button type="submit" class="btn btn-default">Logout</button>
-    </form>
+    <div class="page-header"
+         style="width: 350px; overflow: hidden; top: -20px; height: 100px; position: relative; left: 30px; background: white; border-radius: 20px 20px 20px 20px;">
+        <a th:href="@{/main}" style="text-decoration:none;">
+            <h1 class="center-block"
+                style="width: 300px; overflow: hidden; top: -15px; height: 98px; position: relative; text-align:center;">
+                MINI NOTES
+                <br>
+                <small>best notes service</small>
+            </h1>
+        </a>
+    </div>
 </div>
-<br>
-<br>
-<h2>Hello, <span th:text="${user.name}"></span></h2>
+<section class="row" th:if="${user.status.name() != 'BLOCKED'}">
 
+    <div class="my_modal" id="my-modal">
+        <div class="my_modal_box">
+            <button class="my_modal_close_btn" id="close-my-modal"></button>
+            <form th:action="@{/user/{userId}/rename(userId=${userId})}" method="post">
+                <input name="newName" type="text" class="form-control" placeholder="New name"
+                       style="height: 50px; overflow: hidden; top: 50px; position: relative; background: #1e1e20; color: white;">
+                <button type="submit" class="btn btn-default center-block"
+                        style="height: 50px; overflow: hidden; top: 180px; position: relative; background: #1e1e20; color: white;">
+                    Rename
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-2">
+        <a th:href="@{/main}">
+            <img class="img-responsive pull-right" th:src="@{/image/go_back.png}"
+                 style="cursor: pointer; height: 100px; width: 100px; overflow: hidden;">
+        </a>
+    </div>
+    <div class="col-md-8">
+        <div class="container"
+             style="height: 460px; overflow: hidden; top: 30px; position: relative; border: 10px solid #1e1e20; border-radius: 40px;">
+            <img th:src="@{/image/profile_image.png}" class="img-responsive"
+                 style="top: 40px; height: 260px; width: 260px; overflow: hidden; position: relative; ">
+            <p style="left: 300px; height: 260px; width: 800px; overflow: hidden; position: relative;
+                    top: -220px; color: black;
+                    font-family: Impact, Charcoal, sans-serif;font-size: 38px;">Name: <span
+                    th:text="${user.name}"></span>
+
+                <img id="open-my-modal" th:src="@{/image/pencil.png}" class="img-responsive pull-right"
+                     style="cursor: pointer; height: 55px; width: 55px; overflow: hidden; position: relative; left: -30px;">
+                <br>
+                <br>
+                Role: <span th:text="${user.role}"></span>
+                <br>
+                <br>
+                Number of notes: <span th:text="${numOfNotes}"></span>
+            </p>
+            <form th:action="@{/logout}" method="post">
+                <button class="btn btn-default"
+                        style="top: -200px; height: 55px; overflow: hidden; position: relative; width: 260px;">Logout
+                </button>
+            </form>
+            <a th:href="@{/user/{userId}/bin(userId = ${user.id})}">
+                <img th:src="@{/image/bin.png}" class="img-responsive pull-right"
+                     style="top: -270px; right: 40px; height: 80px; width: 80px; overflow: hidden; position: relative;">
+            </a>
+            <a th:if="${user.role.name() == 'ADMIN'}" th:href="@{/user/{userId}/userList(userId = ${user.id})}">
+                <img th:src="@{/image/profile_list.png}" class="img-responsive pull-right"
+                     style="top: -270px; right: 80px; height: 80px; width: 80px; overflow: hidden; position: relative;">
+            </a>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</section>
+
+<section class="row" th:if="${user.status.name() == 'BLOCKED'}">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h2 class="center-block" style="width: 500px; overflow: hidden;">Unlucky, your account is blocked:(</h2>
+    </div>
+    <div class="col-md-2"></div>
+</section>
+
+<script th:src="@{/js/my_modal.js}"></script>
 </body>
 </html>

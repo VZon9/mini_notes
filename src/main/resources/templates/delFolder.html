@@ -9,22 +9,22 @@
 
 <body style="overflow-x: hidden;">
 <div style="height: 140px; overflow: hidden; background: #1e1e20;">
-    <div th:if="${isAuth}" class="pull-right" style="padding: 30px 30px 0px 0px;">
+    <div class="pull-right" style="padding: 30px 30px 0px 0px;">
         <a th:href="@{/user/{userId}/profile(userId=${user.id})}">
             <img class="img-responsive" th:src="@{/image/profile_icon.png}" style="height: 80px; width: 80px; overflow: hidden;">
         </a>
     </div>
-        <div class="page-header" style="width: 350px; overflow: hidden; top: -20px; height: 100px; position: relative; left: 30px; background: white; border-radius: 20px 20px 20px 20px;">
-            <a th:href="@{/main}" style="text-decoration:none;">
+    <div class="page-header" style="width: 350px; overflow: hidden; top: -20px; height: 100px; position: relative; left: 30px; background: white; border-radius: 20px 20px 20px 20px;">
+        <a th:href="@{/main}" style="text-decoration:none;">
             <h1 class="center-block" style="width: 300px; overflow: hidden; top: -15px; height: 98px; position: relative; text-align:center;">
                 MINI NOTES
                 <br>
                 <small>best notes service</small>
             </h1>
-            </a>
-        </div>
+        </a>
+    </div>
 </div>
-<section th:if="${isAuth}" class="row" style="height: auto; overflow: hidden;">
+<section class="row" style="height: auto; overflow: hidden;">
     <div class="my_modal" id="my-modal">
         <div class="my_modal_box">
             <button class="my_modal_close_btn" id="close-my-modal"></button>
@@ -35,7 +35,19 @@
         </div>
     </div>
 
-    <section class="row" th:if="${user.status.name() != 'BLOCKED'}">
+    <div class="my_modal_del open" id="my-modal-del">
+        <div class="my_modal_box_del open">
+            <span class="center-block" style="width: 300px;">Are you sure about delete this folder?</span>
+            <div class="btn-group center-block" style="width: 230px; overflow: hidden; position: relative; height: 55px; top: 50px; padding: 0px 0px 0px 0px;">
+                <form th:action="@{/user/{userId}/folder/{folderId}/delFolder(userId=${userId}, folderId=${folderId})}" method="post">
+                    <button type="submit" class="btn btn-default pull-left" style="background: #1e1e20; color: white;">Yes</button>
+                </form>
+                <button id="close-my-modal-del" type="button" class="btn btn-default pull-right" style="background: #1e1e20; color: white;">No</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <img id="open-my-modal" class="img-responsive" th:src="@{/image/add_folder.png}" style="cursor: pointer; height: 60px; width: 60px; overflow: hidden;">
@@ -43,49 +55,18 @@
                 <a th:each="folder: ${user.userFolders}" th:href="@{/user/{userId}/folder/{folderId}(userId=${user.id}, folderId = ${folder.id})}" class="list-group-item">
                     <span th:text="${#strings.abbreviate(folder.title, 40)}"></span>
                     <a th:href="@{/user/{userId}/folder/{folderId}/delFolder(userId=${user.Id}, folderId=${folder.id})}">
-                        <img  class="img-responsive pull-right" th:src="@{/image/bin.png}" style="height: 25px; width: 25px; overflow: hidden; position: relative; top: -35px; right: 10px">
+                        <img id="open-my-modal-del" class="img-responsive pull-right" th:src="@{/image/bin.png}" style="height: 25px; width: 25px; overflow: hidden; position: relative; top: -35px; right: 10px">
                     </a>
                 </a>
             </div>
         </div>
         <div class="col-md-2"></div>
-        <script th:src="@{/js/main.js}"></script>
     </section>
+    <script th:src="@{/js/my_modal.js}"></script>
+    <script th:src="@{/js/my_modal_del.js}"></script>
 </section>
 
-    <section class="row" th:if="${user.status.name() == 'BLOCKED'}">
 
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <h2 class="center-block" style="width: 500px; overflow: hidden;">Unlucky, your account is blocked:(</h2>
-        </div>
-        <div class="col-md-2"></div>
-    </section>
-
-<section th:if="${not isAuth}" class="row" style="height: auto; overflow: hidden;">
-
-    <section class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <div class="jumbotron">
-                <div class="container" style="text-align:center; color: black">
-                    <h1>Welcome to MINI NOTES!</h1>
-                    <p style="color: black">This service will greatly simplify your life.
-                        This will help you not to forget the most important things and not get confused in your affairs.
-                        But how is this possible? Just create a note!
-                    </p>
-                    <p>
-                        <a th:href="@{/login}">
-                            <button class="btn btn-default" style="height: 50px;">Try It</button>
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3"></div>
-    </section>
-</section>
-<script th:src="@{/js/my_modal.js}"></script>
 </body>
 
 </html>

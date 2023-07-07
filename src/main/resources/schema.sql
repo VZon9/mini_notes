@@ -18,5 +18,6 @@ create table note (
     note_text varchar(255),
     title varchar(255),
     folder_id bigint,
+    is_deleted bit,
     primary key (id));
 
